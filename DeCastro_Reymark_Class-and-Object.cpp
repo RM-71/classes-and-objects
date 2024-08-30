@@ -1,7 +1,5 @@
 #include <iostream>
-#include <iomanip>
 using namespace std;
-
 
 //Class For Library book Details
 class Library {
@@ -10,7 +8,6 @@ private:
     string Title;
     string Author;
     int Year;
-
 
 public:
 //Constructor For Book Details
@@ -34,13 +31,7 @@ public:
     int GetYear() {
         return Year;
     }
-    
-//To Display The Title
-    void Display() {
-        cout << Title << "\t" << Author << "\t\t" << Year << endl;
-    }
 };
-
 
 
 
@@ -63,7 +54,7 @@ void AddBook(Library books[], int& count) {
     cout << "Enter Year: ";
     cin >> year;
     
-
+	//To store the book
     books[count++] = Library(title, author, year);
     cout << "Book Added Successfully" << endl;
 }
@@ -74,10 +65,9 @@ void AddBook(Library books[], int& count) {
 void DisplayBooks(Library books[], int count) {
     cout << "Title\t\tAuthor\t\tYear" << endl;
     for (int i = 0; i < count; ++i) {
-        books[i].Display();
+        cout << books[i].GetTitle() << "\t\t" << books[i].GetAuthor() << "\t\t" << books[i].GetYear() << endl;
     }
 }
-
 
 
 
@@ -118,7 +108,6 @@ void SearchBooks(Library books[], int count) {
 
 
 
-
 //The Starting Point of Program Execution
 int main() {
 	
@@ -142,40 +131,29 @@ int main() {
 		cin.ignore();
         cout << endl;
         
-        
 	    switch (menuChoice) {
-            case 1:
-            	
-                AddBook(books, count);//Get The Void That Add all The Book
-                
-                system ("pause"); //To pause and display "Press Any Key..."
+            case 1://Get The Void That Add The Book
+                AddBook(books, count);
+                system ("pause");
                 break;
                 
-            case 2:
-            	
-                DisplayBooks(books, count); //Get The Void That Display all The Book
-                
-                system ("pause"); //To pause and display "Press Any Key..."
+            case 2: //Get The Void That Display all The Book
+                DisplayBooks(books, count); 
+                system ("pause"); 
                 break;
                 
-            case 3:
-        
-                SearchBooks(books, count); //Get The Void That Search The Book
-                
-                system ("pause"); //To pause and display "Press Any Key..."
+            case 3: //Get The Void That Search The Book
+                SearchBooks(books, count); 
+                system ("pause"); 
                 break;
                 
-            case 4:
-            	
-            	// To Exit The Program
+            case 4: // To Exit The Program
                 cout << "Exiting..." << endl;
                 return 0;
                 
             default:
-            
                 cout << "Invalid Input, Please Try Again" << endl ;
         }
     }
-
     return 0;
 }
