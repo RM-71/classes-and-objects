@@ -34,7 +34,6 @@ public:
 };
 
 
-
 //Void To Add a Book
 void AddBook(Library books[], int& count) {
     
@@ -60,7 +59,6 @@ void AddBook(Library books[], int& count) {
 }
 
 
-
 //Void To Display The Book
 void DisplayBooks(Library books[], int count) {
     cout << "Title\t\tAuthor\t\tYear" << endl;
@@ -68,7 +66,6 @@ void DisplayBooks(Library books[], int count) {
         cout << books[i].GetTitle() << "\t\t" << books[i].GetAuthor() << "\t\t" << books[i].GetYear() << endl;
     }
 }
-
 
 
 //Void To Search The Book
@@ -107,7 +104,6 @@ void SearchBooks(Library books[], int count) {
 }
 
 
-
 //The Starting Point of Program Execution
 int main() {
 	
@@ -118,6 +114,7 @@ int main() {
 	//Loop For the Menu Choices
     while (true) {
     	
+    	system ("pause"); // Pause Screen
        	system("cls"); // Clear Screen
   
     //Menu Display
@@ -132,25 +129,18 @@ int main() {
         cout << endl;
         
 	    switch (menuChoice) {
-            case 1://Get The Void That Add The Book
+	    	case 1: // Get the void that add a book
                 AddBook(books, count);
-                system ("pause");
-                break;
-                
+            break;                   
             case 2: //Get The Void That Display all The Book
                 DisplayBooks(books, count); 
-                system ("pause"); 
-                break;
-                
+            break;                       
             case 3: //Get The Void That Search The Book
                 SearchBooks(books, count); 
-                system ("pause"); 
-                break;
-                
+            break;  
             case 4: // To Exit The Program
                 cout << "Exiting..." << endl;
-                return 0;
-                
+            return 0;   
             default:
                 cout << "Invalid Input, Please Try Again" << endl ;
         }
